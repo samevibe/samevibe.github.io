@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "set REACT_APP_ENV=development && react-scripts start",
     "test": "react-scripts test",
-    "build:pages": "set REACT_APP_ENV=pages && react-scripts build"
+    "build:pages": "react-scripts build"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
