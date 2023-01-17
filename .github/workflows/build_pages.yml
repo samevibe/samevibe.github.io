@@ -30,7 +30,7 @@ jobs:
       - name: copy index.html to 404.html
         run: cp build/index.html build/404.html
       - name: 🚀 Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3.7.1
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: build/pages
