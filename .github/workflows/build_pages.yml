@@ -1,4 +1,4 @@
-name: Build - Pages
+name: Building
 on:
   push:
     branches: [ master ]
