@@ -23,7 +23,7 @@ function AuthForm (p :backendSettings) {
 
     return (
         <form className="login">
-            <img src="/img/ya-auth.svg" onClick={signInYa}/>
+            <img src="/img/ya-auth.svg" onClick={signInYa} alt="авторизация через яндекс аккаунт"/>
         </form>
     )
 }

@@ -18,6 +18,7 @@ jobs:
       - name: Build application
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
+          npx browserslist@latest --update-db
           npm install
           npm install env-cmd --save
           npm run build:pages

@@ -3,13 +3,6 @@ import axios from 'axios';
 
 import {useEffect, useState} from "react";
 
-type Yatoken = {
-    "access_token": string,
-    "expires_in": number,
-    "refresh_token": string,
-    "token_type": string
-}
-
 function AuthVerification (p :backendSettings) {
     const [appState, setAppState] = useState();
     const [info, setInfo] = useState('');
@@ -36,7 +29,9 @@ function AuthVerification (p :backendSettings) {
             setInfo(error.toString())
         });
 
-    }, [setAppState]);
+        }, [setAppState,p.ya.clientID, p.ya.clientSecret]);
+
+    console.log(appState)
 
     return (<h1>{info}</h1>);
 }
