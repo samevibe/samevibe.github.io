@@ -22,6 +22,10 @@ jobs:
           npm install
           npm install env-cmd --save
           npm run build:pages
+        env:
+            REACT_APP_YA_CID: ${{ secrets.REACT_APP_YA_CID }}
+            REACT_APP_YA_CIS: ${{ secrets.REACT_APP_YA_CIS }}
+            REACT_APP_YA_CURI: ${{ secrets.REACT_APP_YA_CURI }}
       - name: 🚀 Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
