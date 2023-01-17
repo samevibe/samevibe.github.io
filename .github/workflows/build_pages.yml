@@ -22,7 +22,7 @@ jobs:
           npm install
           npm install env-cmd --save
           npm run build:pages
-          cat index.html > 404.html
+          cat ./index.html > ./404.html
         env:
             REACT_APP_YA_CID: ${{ env.REACT_APP_YA_CID }}
             REACT_APP_YA_CIS: ${{ vars.REACT_APP_YA_CIS }}
