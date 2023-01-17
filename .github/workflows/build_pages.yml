@@ -28,7 +28,7 @@ jobs:
           REACT_APP_YA_CIS: ${{ vars.REACT_APP_YA_CIS }}
           REACT_APP_YA_CURI: ${{ secrets.REACT_APP_YA_CURI }}
       - name: copy index.html to 404.html
-        run: cp release/wwwroot/index.html release/wwwroot/404.html
+        run: cp build/index.html build/404.html
       - name: 🚀 Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3.7.1
         with:
@@ -36,5 +36,4 @@ jobs:
           BRANCH: build/pages
           FOLDER: build
           CI: true
-          folder: release/wwwroot
 
