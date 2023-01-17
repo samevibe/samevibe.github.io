@@ -2,6 +2,10 @@ name: Building
 on:
   push:
     branches: [ master ]
+env:
+  REACT_APP_YA_CID: ${{ env.REACT_APP_YA_CID }}
+  REACT_APP_YA_CIS: ${{ vars.REACT_APP_YA_CIS }}
+  REACT_APP_YA_CURI: ${{ secrets.REACT_APP_YA_CURI }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,10 +15,6 @@ jobs:
     steps:
       - name: 🛎️ Checkout repository
         uses: actions/checkout@v2
-        env:
-          REACT_APP_YA_CID: ${{ env.REACT_APP_YA_CID }}
-          REACT_APP_YA_CIS: ${{ vars.REACT_APP_YA_CIS }}
-          REACT_APP_YA_CURI: ${{ secrets.REACT_APP_YA_CURI }}
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -26,7 +26,6 @@ jobs:
           npm install
           npm install env-cmd --save
           npm run build:pages
-          pwd
       - name: copy index.html to 404.html
         run: cp build/index.html build/404.html
       - name: 🚀 Deploy
