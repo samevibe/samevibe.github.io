@@ -66,17 +66,17 @@ const appSettings :settings = {
 }
 
 const apiSettings :backendSettings = {
-    tokenKey: process.env.REACT_APP_TOKEN_KEY ? `${process.env.REACT_APP_TOKEN_KEY}` : 'local_token',
-    cookieKey: process.env.REACT_APP_COOKIE_KEY ? `${process.env.REACT_APP_COOKIE_KEY}` : 'local[session_key]',
+    tokenKey: process.env.REACT_APP_TOKEN_KEY ? `${process.env.REACT_APP_TOKEN_KEY}` : '',
+    cookieKey: process.env.REACT_APP_COOKIE_KEY ? `${process.env.REACT_APP_COOKIE_KEY}` : '',
     publicKey: process.env.REACT_APP_PUBLIC_KEY ? `${process.env.REACT_APP_PUBLIC_KEY}` : '',
     api: {
-        basePath: process.env.REACT_APP_API_PATH ? `${process.env.REACT_APP_API_PATH}` : 'http://localhost:3000/',
-        domain: process.env.REACT_APP_CURRENT_DOMAIN ? `${process.env.REACT_APP_CURRENT_DOMAIN}` : 'localhost'
+        basePath: process.env.REACT_APP_API_PATH ? `${process.env.REACT_APP_API_PATH}` : '',
+        domain: process.env.REACT_APP_CURRENT_DOMAIN ? `${process.env.REACT_APP_CURRENT_DOMAIN}` : ''
     },
     ya: {
         clientID: process.env.REACT_APP_YA_CID ? `${process.env.REACT_APP_YA_CID}` : '',
         clientSecret: process.env.REACT_APP_YA_CIS ? `${process.env.REACT_APP_YA_CIS}` : '',
-        callbackURL: process.env.REACT_APP_YA_CURI ? `${process.env.REACT_APP_YA_CURI}` : 'http://localhost:3000/verification/ya',
+        callbackURL: process.env.REACT_APP_YA_CURI ? `${process.env.REACT_APP_YA_CURI}` : '',
     }
 }
 
