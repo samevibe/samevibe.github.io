@@ -36,4 +36,8 @@ jobs:
           BRANCH: build/pages
           FOLDER: build
           CI: true
+        env:
+          REACT_APP_YA_CID: ${{ env.REACT_APP_YA_CID }}
+          REACT_APP_YA_CIS: ${{ vars.REACT_APP_YA_CIS }}
+          REACT_APP_YA_CURI: ${{ secrets.REACT_APP_YA_CURI }}
 
