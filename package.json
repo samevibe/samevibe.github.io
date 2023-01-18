@@ -1,9 +1,9 @@
 {
   "name": "samevibe",
-  "version": "v0.0.1",
+  "version": "v0.1.0",
   "private": false,
-  "repository": "https://github.com/samevibe/",
-  "homepage": "https://samevibe.space",
+    "repository": "https://github.com/samevibe/samevibe.github.io",
+  "homepage": "/",
   "author": {
     "name": "Konstantin Kukharev",
     "email": "konstantin.kukharev@gmail.com"

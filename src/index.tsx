@@ -13,51 +13,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import RoutePrivate from './module/RoutePrivate'
 import configureStore, { history } from './redux/storeConfig'
 
-import axios from "axios";
-import credentials from "./module/auth/github/credentials";
 import AuthVerification from "./module/auth/ya/verification";
-
-type answer = {
-    error: number,
-    data: object | null
-}
-
-const auth = async (c: credentials): Promise<answer> => {
-    return await axios.get(
-        `https://github.com/login/oauth/authorize`,
-        {
-            params: c,
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            },
-        }
-    ).then((resp) => {
-        return {
-            error: 0,
-            data: resp.data
-        }
-    }).catch((err) => {
-        console.error(err)
-
-        return {
-            error: 1,
-            data: null
-        }
-    })
-}
-
-const z: credentials = {
-    client_id: process.env.REACT_APP_GH_APP_CLIENT_ID ? `${process.env.REACT_APP_GH_APP_CLIENT_ID}` : '',
-    redirect_uri: process.env.REACT_APP_GH_APP_CALLBACK ? `${process.env.REACT_APP_GH_APP_CALLBACK}` : '',
-}
-
-if (z?.client_id !== '') {
-    auth(z).then(r => {
-        console.log(r)
-    }).catch(e => {
-        console.log(e)
-    })
-}
 
 const store = configureStore({})
 

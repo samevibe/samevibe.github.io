@@ -1,35 +1,26 @@
 import backendSettings from "../../settings/backend";
-import axios from 'axios';
+
+import tokenBearer from "../tokenBearer";
 
 import {useEffect, useState} from "react";
 
 function AuthVerification (p :backendSettings) {
-    const [appState, setAppState] = useState();
+    const [appState, setAppState] = useState<tokenBearer>();
     const [info, setInfo] = useState('');
+
+    const authorize = (token :tokenBearer) => {
+        setAppState(token)
+    }
 
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search)
         const code = queryParams.get("code") + ''
+        const token = new tokenBearer(p)
+        token.getTokenByCode(code)
+        .then()
+        .catch()
 
-        let form_data = new FormData();
-        form_data.append( 'grant_type', 'authorization_code' );
-        form_data.append( 'code', code );
-        form_data.append( 'client_id', p.ya.clientID );
-        form_data.append( 'client_secret', p.ya.clientSecret );
-
-        axios.post('https://oauth.yandex.ru/token', form_data)
-        .then(function (response) {
-            if (response.data?.error !== undefined) {
-                throw (response.data?.error_description)
-            }
-            console.log(response.data?.access_token)
-            setAppState(response.data)
-            setInfo(response.data.access_token)
-        }).catch(function (error) {
-            setInfo(error.toString())
-        });
-
-        }, [setAppState,p.ya.clientID, p.ya.clientSecret]);
+        }, [setAppState,p]);
 
     console.log(appState)
 
