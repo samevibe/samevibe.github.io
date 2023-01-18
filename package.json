@@ -3,7 +3,7 @@
   "version": "v0.0.1",
   "private": false,
   "repository": "https://github.com/samevibe/",
-  "homepage": ".",
+  "homepage": "./",
   "author": {
     "name": "Konstantin Kukharev",
     "email": "konstantin.kukharev@gmail.com"
